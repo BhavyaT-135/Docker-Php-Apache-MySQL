@@ -18,3 +18,14 @@ However, to run the php file on localhost, we will use the following command:
                                                                                          => The --name flag tells the container to name it my-apache-php-app.
                                                                                          => The -v flag tells the container to mount the current directory to the /var/www/html directory.
                                                                                          => php:7.2-apache is the name of the docker image for the apache server, on which we are running the php scripts. 
+To stop the docker containers, we can use the following command:
+
+* docker stop $(docker ps -a -q) => This command stops all the containers that are running.
+                                 => The -a flag tells the command to list all the containers.
+                                 => The -q flag tells the command to output the container IDs.
+
+Next, will run the exact sme setup using docker compose.
+We will create the docker-compose.yml file and move the index.php file to the "src" folder.
+Then we can run the following command to run the docker compose file:
+
+* docker-compose up => This command runs the docker-compose file.
