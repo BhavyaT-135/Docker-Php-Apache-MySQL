@@ -1,0 +1,20 @@
+After creating the Dockerfile and the index.php file, the following docker commands are to be run:
+
+* docker build -t my-php-app => This command builds a dockerr image with the required specifications in the Dockerfile.
+                             => The -t flag is used to tag the image with the name my-php-app.
+
+* docker run -it --rm --name my-running-app my-php-app => This command runs the docker image and creates a container with the name my-running-app.
+                                                       => The -it flag tells the container to run in interactive mode.
+                                                       => The --rm flag tells the container to remove itself after it has finished running.
+
+Now this will run the contents of our php file in the terminal.
+
+However, to run the php file on localhost, we will use the following command:
+
+* docker run -d -p 80:80 --name my-apache-php-app -v ${PWD}:/var/www/html php:7.2-apache => This command runs the docker image, mapping the port 80 of the local machine to port 80 of the server. 
+                                                                                         => This will allow us to access the php file on localhost.
+                                                                                         => The -d flag tells the container to run in detached mode.
+                                                                                         => The -p flag tells the container to map the port 80 of the local machine to port 80 of the server.
+                                                                                         => The --name flag tells the container to name it my-apache-php-app.
+                                                                                         => The -v flag tells the container to mount the current directory to the /var/www/html directory.
+                                                                                         => php:7.2-apache is the name of the docker image for the apache server, on which we are running the php scripts. 
