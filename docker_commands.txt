@@ -70,3 +70,7 @@ FROM php:7.4-apache
 RUN docker-php-ext-install-mysqli
 -------------------------------------------------------------------------------
 
+Finally, when we compose up the file, we will have the mysql server running along with the mysqli extension.
+Thereafter, follow the above-mentioned video tutorial to work with the database with persistent storage.
+
+Set the server: db, username : root, and password : example. Leave databasse empty.
