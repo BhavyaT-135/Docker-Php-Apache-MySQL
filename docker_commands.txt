@@ -1,3 +1,24 @@
+-------------------------------------------------------------------------------
+YouTube Video Link:
+https://www.youtube.com/watch?v=ThpnqYpvnIM
+-------------------------------------------------------------------------------
+
+Dockerfile:
+-------------------------------------------------------------------------------
+FROM php:7.4-cli
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+CMD [ "php", "./index.php" ]
+-------------------------------------------------------------------------------
+
+index.php:
+-------------------------------------------------------------------------------
+<?php
+
+echo 'Hello World! This is to check the docker-compose file!';
+-------------------------------------------------------------------------------
+
+
 After creating the Dockerfile and the index.php file, the following docker commands are to be run:
 
 * docker build -t my-php-app => This command builds a dockerr image with the required specifications in the Dockerfile.
@@ -38,3 +59,14 @@ Then we will first close the docker container using the following command:
 Next, we will run the docker compose file again with the mysql image added:
 
 * docker-compose up
+
+Now, if we go to localhost:8080, we will see the mysql database running with adminer login page.
+
+Henceforth, we will customize our image by adding some mysqli extensions. We will do this with the help of the docker file.
+
+New Dockerfile: 
+-------------------------------------------------------------------------------
+FROM php:7.4-apache
+RUN docker-php-ext-install-mysqli
+-------------------------------------------------------------------------------
+
