@@ -1,10 +1,24 @@
 version: '3.1'
 
 services:
-# The following code creates a container named 'php' that runs the 'php:7.4-apache' image from the Docker Hub on port 80, mounting the source directory to /var/www/html.
+  # The following code creates a container named 'php' that runs the 'php:7.4-apache' image from the Docker Hub on port 80, mounting the source directory to /var/www/html.
   php:
     image: php:7.4-apache
     ports:
       - "80:80"
     volumes:
       - ./src:/var/www/html
+
+  # The following codde has been taken from DockerHub MySQL image.  
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

@@ -29,3 +29,12 @@ We will create the docker-compose.yml file and move the index.php file to the "s
 Then we can run the following command to run the docker compose file:
 
 * docker-compose up => This command runs the docker-compose file.
+
+Now, we will import the code for mysql image into the docker-copose.yml file.
+Then we will first close the docker container using the following command:
+
+* docker-compose down
+
+Next, we will run the docker compose file again with the mysql image added:
+
+* docker-compose up
